@@ -2,8 +2,12 @@
 <html>
     <body>
 
-            <h2>Instructions:</h2>
-            <h4>[placeholder]</h4>
+            <h2>How to play two player 24:</h2>
+            <h4>There are two teams, yellow and green.</h4>
+            <h4>Take the numbers on the card and use addition, subtraction, multiplication, and division to create the number 24!</h4>
+            <h4>Once a team figures out a solution, press their side of the shift button (yellow = left shift, green = right shift).</h4>
+            <h4>They have five seconds to explain their solution. If they suceed, they keep the card. If they fail, the other team gets the card.</h4>
+            <h4>Whoever has the most cards at the end of the round wins!</h4>
 
     </body>
 </html>
