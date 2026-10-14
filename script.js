@@ -10,7 +10,6 @@ function genNumber()
 
 start.addEventListener('click', () => {
     const numbers = [genNumber(), genNumber(), genNumber(), genNumber()];
-    cardText.classList.remove('hidden');
     cardText.textContent = `Card :3 ${numbers.join(', ')}`;
 });
 
