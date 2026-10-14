@@ -10,7 +10,7 @@ function genNumber()
 function twentyFour()
 {
     const numbers = [genNumber(), genNumber(), genNumber(), genNumber()];
-        cardText.innerHTML = `<h3>Card :3/n${numbers.join(', ')}</h3>`;
+        cardText.innerHTML = `<h3>Card:<br>${numbers.join(', ')}</h3>`;
 }
 
 start.addEventListener('click', () => {
