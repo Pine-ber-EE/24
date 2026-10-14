@@ -15,6 +15,7 @@ function twentyFour()
 
 start.addEventListener('click', () => {
     twentyFour();
+    button.style.display = 'none';
 });
 
 
