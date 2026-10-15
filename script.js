@@ -1,5 +1,5 @@
 const cardText = document.getElementById('card');
-const start = document.getElementById('start');
+const startButton = document.getElementById('start');
 
 function genNumber() 
 {
@@ -13,9 +13,9 @@ function twentyFour()
         cardText.innerHTML = `<h3>Card:<br>${numbers.join(', ')}</h3>`;
 }
 
-start.addEventListener('click', () => {
+startButton.addEventListener('click', () => {
+    startButton.style.display = 'none';
     twentyFour();
-    start.style.display = 'none';
 });
 
 

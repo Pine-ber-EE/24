@@ -24,7 +24,7 @@ h4
   src: url("PressStart2P-Regular.ttf") format("truetype");
 }
 
-#start
+button
 {
   font-family: "pressStart", cursive;
   font-size: 20px;
