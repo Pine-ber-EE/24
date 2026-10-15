@@ -1,21 +1,36 @@
-body {
+body
+{
   margin: 0;
   padding: 0;
   text-align: center;
 }
 
-h1{
+h1
+{
   font-weight: bold;
   -webkit-text-stroke: 1px black;
   -webkit-text-fill-color: #ff6666;
   font-family: "pressStart", cursive;
 }
 
-h4{
+h4
+{
   font-family: "pressStart", cursive;
 }
 
-@font-face {
+@font-face 
+{
   font-family: "pressStart";
   src: url("PressStart2P-Regular.ttf") format("truetype");
+}
+
+#start
+{
+  font-family: "pressStart", cursive;
+  font-size: 20px;
+  background-color: #ff6666;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
 }
