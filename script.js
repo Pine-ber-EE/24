@@ -6,9 +6,9 @@ const startButton = document.getElementById('start');
     return Math.floor(Math.random() * 9) + 1;
 }*/
 
-function twentyFour()
+async function twentyFour()
 {
-    const card =  getCard();
+    const card =  await getCard();
     const numbers = [parseInt(card.charAt(0)), parseInt(card.charAt(1)), parseInt(card.charAt(2)), parseInt(card.charAt(3))];
         cardText.innerHTML = `<h3>Card:<br>${numbers.join(', ')}</h3>`;
 }
