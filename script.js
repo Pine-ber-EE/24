@@ -8,7 +8,8 @@ const startButton = document.getElementById('start');
 
 function twentyFour()
 {
-    const numbers = [parseInt(getCard().charAt(0)), parseInt(getCard().charAt(1)), parseInt(getCard().charAt(2)), parseInt(getCard().charAt(3))];
+    const card =  getCard();
+    const numbers = [parseInt(card.charAt(0)), parseInt(card.charAt(1)), parseInt(card.charAt(2)), parseInt(card.charAt(3))];
         cardText.innerHTML = `<h3>Card:<br>${numbers.join(', ')}</h3>`;
 }
 
