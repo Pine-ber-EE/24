@@ -45,7 +45,7 @@ async function getCard()
         const lines = cardstxt.split('\n');
         console.log(Math.floor(Math.random() * (lines.length-1)/2)*2+1);
         console.log(lines[Math.floor(Math.random() * (lines.length-1)/2)*2+1]);
-        return lines[Math.floor(Math.random() * (lines.length-1)/2)*2+1];
+        return (lines[Math.floor(Math.random() * (lines.length-1)/2)*2+1]);
     }
     catch (error)
     {
