@@ -39,7 +39,7 @@ async function getCard()
         const cardstxt = await response.text();
         const lines = cardstxt.split('\n');
         const lineNum = Math.floor(Math.random() * (lines.length-1)/2)*2;
-        return (lines[lineNum+1]);
+        return (lines[lineNum]);
     }
     catch (error)
     {
