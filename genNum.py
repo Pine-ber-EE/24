@@ -35,7 +35,7 @@ class genNum:
             temp4=genNum.recheck(num/oneNum, whatsLeft, str(sol)+"/"+str(int(oneNum+0.001)))
             return (temp1 or temp2 or temp3 or temp4)
         if (abs(num-24)<0.001):
-            print(sol)
+            #print(sol)
             genNum.sols.append(sol)
             return True
         else:
@@ -47,6 +47,7 @@ class genNum:
         a=int(random.random()*9+1)
         return a
 for i in range(1000,9999):
+    genNum.sols=[]
     if "0" in str(i):
         continue
     card = str(i)
@@ -61,4 +62,4 @@ for i in range(1000,9999):
         with open(path, "a") as f:
             for sol in genNum.sols:
                 f.write(sol + "\n")
-        print("Card:" + card)
+        #print("Card:" + card)
