@@ -9,6 +9,8 @@ const solutionsText = document.getElementById('solutions');
 const onePlayer = document.getElementById('onePlayerButton');
 const twoPlayer = document.getElementById('twoPlayerButton');
 const timerText = document.getElementById('timer');
+const cardDifficulty = document.getElementById('diff');
+let cardDiff = 0;
 let card = "";
 let mode = "1";
 let player1Score = "0";
@@ -24,7 +26,23 @@ let timerActivate = false;
 
 async function twentyFour()
 {
-    card =  await getCard();
+    card =  await getCard()[0];
+    solN = await getCard()[1];
+    if(solN <= 3)
+    {
+        cardDiff = 3;
+        cardDifficulty.innerHTML = `<img src="3.png" alt="card 3 difficulty">`
+    }
+    else if(sonN<= 15)
+    {
+        cardDiff = 2;
+        cardDifficulty.innerHTML = `<img src="2.png" alt="card 2 difficulty">`
+    }
+    else
+    {
+        cardDiff = 1;
+        cardDifficulty.innerHTML = `<img src="1.png" alt="card 1 difficulty">`
+    }
     const numbers = [parseInt(card.charAt(0)), parseInt(card.charAt(1)), parseInt(card.charAt(2)), parseInt(card.charAt(3))];
     console.log(mode);
     console.log(card);
@@ -121,7 +139,7 @@ async function getCard()
         const lines = cardstxt.split('\n');
         const lineNum = Math.floor(Math.random() * (lines.length-1)/2)*2;
         card = lines[lineNum];
-        return lines[lineNum];
+        return [lines[lineNum],lines[lineNum+1]];
     }
     catch (error)
     {
