@@ -44,12 +44,12 @@ async function getCard()
 {
     try
     {
+        solutionButton.style.display = 'block';
         const response = await fetch('cards.txt');
         const cardstxt = await response.text();
         const lines = cardstxt.split('\n');
         const lineNum = Math.floor(Math.random() * (lines.length-1)/2)*2;
         return lines[lineNum];
-        solutionButton.style.display = 'block';
     }
     catch (error)
     {
@@ -61,10 +61,10 @@ async function getSolutions()
 {
     try
     {
+        solutionButton.style.display = 'block';
         const response = await fetch('solutions/' + card + '.txt');
         const solutionstxt = await response.text();
-        return solutionstxt;
-        solutionButton.style.display = 'block';
+        return solutionstxt;  
     }
     catch (error)
     {
