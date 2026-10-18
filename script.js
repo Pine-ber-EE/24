@@ -151,6 +151,7 @@ function timer (n, o)
     console.log(timerActivate);
     timeLeft = 5;
     setTimeout(oneSec, 1000);
+
     setTimeout(oneSec, 1000);
     setTimeout(oneSec, 1000);
     setTimeout(oneSec, 1000);
@@ -170,6 +171,9 @@ function timer (n, o)
 
 function oneSec()
 {
+    //remove later:
+    timerText.style.display = 'block';
+    //
     timeLeft = timeLeft - 1;
     console.log(timeLeft);
     timerText.innerHTML = `<h1>${timer}</h1>`;

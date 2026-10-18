@@ -43,7 +43,7 @@ button
 .solutions
 {
   font-family: "pressStart", cursive;
-
+  justify-content: center;
   max-width: 500px;
   padding: 10px;
 }
