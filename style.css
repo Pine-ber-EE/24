@@ -33,4 +33,21 @@ button
   border: none;
   padding: 10px 20px;
   cursor: pointer;
+  border-radius: 5px;
+}
+
+.solutions
+{
+  font-family: "pressStart", cursive;
+
+  max-width: 500px;
+  padding: 10px;
+}
+
+h5
+{
+  font-family: "pressStart", cursive;
+  text-align:right;
+  margin-right: 15px;
+  vertical-align: bottom;
 }
