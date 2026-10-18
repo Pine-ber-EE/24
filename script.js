@@ -117,7 +117,7 @@ window.addEventListener('keydown', (event) => {
             }
             if (event.location === KeyboardEvent.DOM_KEY_LOCATION_RIGHT)
             {
-                timer(player2Score, player2Score);
+                timer(player2Score, player1Score);
             }
         }
         
@@ -168,12 +168,17 @@ function timer (n, o)
     timerActivate = true;
     console.log(timerActivate);
     timeLeft = 5;
+
     setTimeout(oneSec, 1000);
 
     setTimeout(oneSec, 1000);
+
     setTimeout(oneSec, 1000);
+
     setTimeout(oneSec, 1000);
+
     setTimeout(oneSec, 1000);
+
     if (timerActivate = false)
     { 
         n += 1;
@@ -194,7 +199,7 @@ function oneSec()
     //
     timeLeft = timeLeft - 1;
     console.log(timeLeft);
-    timerText.innerHTML = `<h1>${timer}</h1>`;
+    timerText.innerHTML = `<h1>${timeLeft}</h1>`;
 }
 
 function updateScore()
