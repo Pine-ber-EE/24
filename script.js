@@ -2,7 +2,12 @@ const cardText = document.getElementById('card');
 const startButton = document.getElementById('start');
 const solutionButton = document.getElementById('solutionButton');
 const solutionsText = document.getElementById('solutions');
+const onePlayerButton = document.getElementById('onePlayerButton');
+const twoPlayerButton = document.getElementById('twoPlayerButton');
 let card = "";
+let mode = "1";
+let player1Score = "0";
+let player2Score = "0";
 
 //old genNum func:
 /*function genNumber() 
@@ -24,25 +29,47 @@ startButton.addEventListener('click', () => {
 
 solutionButton.addEventListener('click', async () => {
     const sols = await getSolutions();
+    console.log(sols);
     solutionsText.innerHTML = `<h4>please note that the order of operations do not apply to these\nSolutions:<br>${sols}</h4>`;
 });
 
 onePlayerButton.addEventListener('click', () => {
     document.getElementById('one').style.display = 'block';
     document.getElementById('two').style.display = 'none';
+    mode = "1";
 });
 
 twoPlayerButton.addEventListener('click', () => {
     document.getElementById('one').style.display = 'none';
     document.getElementById('two').style.display = 'block';
+    mode = "2";
 });
 
 
 window.addEventListener('keydown', (event) => {
     if (event.key === ' ') 
-    {
-        twentyFour();
+    {   
+        if (mode === "1")
+        {
+            twentyFour();
+        }
     }
+    if (event.key === 'Shift') 
+    {
+        if (mode === "2")
+        {
+            if (event.location === keyboardEvent.DOM_KEY_LOCATION_LEFT)
+            {
+                timer();
+            }
+            if (event.location === keyboardEvent.DOM_KEY_LOCATION_RIGHT)
+            {
+                timer();
+            }
+        }
+        
+    }
+
 });
 /*function start24()
 {
@@ -80,4 +107,9 @@ async function getSolutions()
     {
         console.error('oh no! smth went wrong. plz contact me or something so i can try to fix', error);
     }
+}
+
+function timer()
+{
+    
 }
