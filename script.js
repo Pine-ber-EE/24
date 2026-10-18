@@ -33,7 +33,7 @@ async function twentyFour()
         cardDiff = 3;
         cardDifficulty.innerHTML = `<img src="3.png" alt="card 3 difficulty">`
     }
-    else if(sonN<= 15)
+    else if(solN<= 15)
     {
         cardDiff = 2;
         cardDifficulty.innerHTML = `<img src="2.png" alt="card 2 difficulty">`
