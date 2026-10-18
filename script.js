@@ -168,16 +168,16 @@ function timer (n, o)
     timerActivate = true;
     console.log(timerActivate);
     timeLeft = 5;
-
+//note to self to fix i think they are overlapping cuz theres only 1 timeout idk
     setTimeout(oneSec, 1000);
 
-    setTimeout(oneSec, 1000);
+    setTimeout(oneSec, 2000);
 
-    setTimeout(oneSec, 1000);
+    setTimeout(oneSec, 3000);
 
-    setTimeout(oneSec, 1000);
+    setTimeout(oneSec, 4000);
 
-    setTimeout(oneSec, 1000);
+    setTimeout(oneSec, 5000);
 
     if (timerActivate = false)
     { 
