@@ -1,6 +1,10 @@
 const cardText = document.getElementById('card');
 const startButton = document.getElementById('start');
+const solutionButton = document.getElementById('solutionButton');
+const solutionsText = document.getElementById('solutions');
+const card = "";
 
+//old genNum func:
 /*function genNumber() 
 {
     return Math.floor(Math.random() * 9) + 1;
@@ -16,6 +20,11 @@ async function twentyFour()
 startButton.addEventListener('click', () => {
     startButton.style.display = 'none';
     twentyFour();
+});
+
+solutionButton.addEventListener('click', async () => {
+    const sols = await getSolutions();
+    solutionsText.innerHTML = `<h4>please note that the order of operations do not apply to these\nSolutions:<br>${sols}</h4>`;
 });
 
 
@@ -39,7 +48,23 @@ async function getCard()
         const cardstxt = await response.text();
         const lines = cardstxt.split('\n');
         const lineNum = Math.floor(Math.random() * (lines.length-1)/2)*2;
-        return (lines[lineNum]);
+        return lines[lineNum];
+        solutionButton.style.display = 'block';
+    }
+    catch (error)
+    {
+        console.error('oh no! smth went wrong. plz contact me or something so i can try to fix', error);
+    }
+}
+
+async function getSolutions()
+{
+    try
+    {
+        const response = await fetch('solutions/' + card + '.txt');
+        const solutionstxt = await response.text();
+        return solutionstxt;
+        solutionButton.style.display = 'block';
     }
     catch (error)
     {
