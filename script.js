@@ -14,7 +14,7 @@ let mode = "1";
 let player1Score = "0";
 let player2Score = "0";
 let timeLeft = 0;
-const timerActivate = false;
+let timerActivate = false;
 
 //old genNum func:
 /*function genNumber() 
@@ -147,6 +147,7 @@ function timer (n, o)
 {
     timerText.style.display = 'block';
     timerActivate = true;
+    console.log(timerActivate);
     timeLeft = 5;
     setTimeout(oneSec, 1000);
     setTimeout(oneSec, 1000);
@@ -162,12 +163,14 @@ function timer (n, o)
         o += 1;
     }
     updateScore();
+    timerText.style.display = 'none';
     
 }
 
 function oneSec()
 {
-    timer -= 1;
+    timeLeft = timeLeft - 1;
+    console.log(timeLeft);
     timerText.innerHTML = `<h1>${timer}</h1>`;
 }
 
