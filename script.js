@@ -2,8 +2,8 @@ const cardText = document.getElementById('card');
 const startButton = document.getElementById('start');
 const solutionButton = document.getElementById('solutionButton');
 const solutionsText = document.getElementById('solutions');
-const onePlayerButton = document.getElementById('onePlayerButton');
-const twoPlayerButton = document.getElementById('twoPlayerButton');
+const onePlayer = document.getElementById('onePlayerButton');
+const twoPlayer = document.getElementById('twoPlayerButton');
 let card = "";
 let mode = "1";
 let player1Score = "0";
@@ -33,13 +33,13 @@ solutionButton.addEventListener('click', async () => {
     solutionsText.innerHTML = `<h4>please note that the order of operations do not apply to these\nSolutions:<br>${sols}</h4>`;
 });
 
-onePlayerButton.addEventListener('click', () => {
+onePlayer.addEventListener('click', () => {
     document.getElementById('one').style.display = 'block';
     document.getElementById('two').style.display = 'none';
     mode = "1";
 });
 
-twoPlayerButton.addEventListener('click', () => {
+twoPlayer.addEventListener('click', () => {
     document.getElementById('one').style.display = 'none';
     document.getElementById('two').style.display = 'block';
     mode = "2";

@@ -1,8 +1,9 @@
 body
 {
-  margin: 0;
-  padding: 0;
+  margin: 20px;
+  padding: 20px;
   text-align: center;
+  font-family: "pressStart", cursive;
 }
 
 h1
@@ -26,6 +27,7 @@ h4
 
 button
 {
+  text-align: center;
   font-family: "pressStart", cursive;
   font-size: 20px;
   background-color: #ff6666;
@@ -34,7 +36,6 @@ button
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
-  text-align: center;
 }
 
 .solutions
