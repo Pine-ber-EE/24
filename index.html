@@ -8,7 +8,11 @@
         <link rel="icon" href="favicon.ico" type="image/x-icon">
     </head>
     <body>
-        <div id = "one" class = "one"></div>
+        <div style="display:flex; gap: 10px;">
+            <button id="onePlayerButton">One Player</button>
+            <button id="twoPlayerButton">Two Player</button>
+        </div>
+        <div style="display: none;" id="one" class="one">
             <h1>How to play 24:</h1>
             <h4>• Look at the card! There should be four numbers.<br>• Use addition, subtraction, multiplication, and division to create the number 24!<br>• You need to use all four numbers, and exactly once each.<br>• Press space to move onto the next card.</h4>
             <!--
@@ -29,7 +33,13 @@
             <h4 id="solutions" class="solutions"></h4>
         </div>
 
-        <h5>version 1.2</h5>
+        <div style="display: none;" id="two" class="two">
+            <h1>How to play two player 24:</h1>
+            <h4>• Look at the card! There should be four numbers.<br>• Use addition, subtraction, multiplication, and division to create the number 24!<br>• You need to use all four numbers, and exactly once each.<br>• After a player gets it, press their respective side of the shift key.<br>• A timer appear will counting down from 5 seconds.<br>• The player must input the right answer before the timer runs out to get a point.<br>• If the player fails to do so, the opposing player is awarded the point instead.</h4>
+
+        </div>
+
+        <h5>version 1.3</h5>
 
     </body>
 </html>
