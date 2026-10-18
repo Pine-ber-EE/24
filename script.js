@@ -84,7 +84,8 @@ window.addEventListener('keydown', (event) => {
         }
         if(mode === "2" && timerActivate === true)
         {
-            timerActivate = false;
+            timerActivate = false; 
+            colsole.log("timer deacted!");
             timerText.style.display = 'none';
         }
     }

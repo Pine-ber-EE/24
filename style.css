@@ -4,6 +4,8 @@ body
   padding: 20px;
   text-align: center;
   font-family: "pressStart", cursive;
+  background-color: #fffadc;
+  background-image: url("back.png");
 }
 
 h1
