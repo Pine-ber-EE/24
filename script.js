@@ -139,6 +139,7 @@ async function getCard()
         const lines = cardstxt.split('\n');
         const lineNum = Math.floor(Math.random() * (lines.length-1)/2)*2;
         card = lines[lineNum];
+        cardDifficulty.style.disply = 'block';
         return [lines[lineNum],lines[lineNum+1]];
     }
     catch (error)
