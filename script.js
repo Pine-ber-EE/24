@@ -1,5 +1,9 @@
+
+
 const cardText = document.getElementById('card');
-const startButton = document.getElementById('start');
+const cardText2 = document.getElementById('card2');
+const startButton = document.getElementsByClassName('start')[0];
+const startButton2 = document.getElementsByClassName('start')[1]
 const solutionButton = document.getElementById('solutionButton');
 const solutionsText = document.getElementById('solutions');
 const onePlayer = document.getElementById('onePlayerButton');
@@ -19,13 +23,29 @@ async function twentyFour()
 {
     card =  await getCard();
     const numbers = [parseInt(card.charAt(0)), parseInt(card.charAt(1)), parseInt(card.charAt(2)), parseInt(card.charAt(3))];
+    console.log(mode);
+    console.log(card);
+    console.log(cardText)
+    console.log(cardText2)
+    if(mode === "1")
+    {
         cardText.innerHTML = `<h3>Card:<br>${numbers.join(', ')}</h3>`;
+    }
+    if(mode === "2")
+    {   
+        cardText2.innerHTML = `<h3>Card:<br>${numbers.join(', ')}</h3>`;
+    }
 }
 
 startButton.addEventListener('click', () => {
     startButton.style.display = 'none';
     twentyFour();
 });
+
+startButton2.addEventListener('click', () => {
+    startButton2.style.display = 'none';
+    twentyFour();
+})
 
 solutionButton.addEventListener('click', async () => {
     const sols = await getSolutions();
@@ -36,12 +56,16 @@ solutionButton.addEventListener('click', async () => {
 onePlayer.addEventListener('click', () => {
     document.getElementById('one').style.display = 'block';
     document.getElementById('two').style.display = 'none';
+    onePlayer.style.display = 'none';
+    twoPlayer.style.display = 'none';
     mode = "1";
 });
 
 twoPlayer.addEventListener('click', () => {
     document.getElementById('one').style.display = 'none';
     document.getElementById('two').style.display = 'block';
+    onePlayer.style.display = 'none';
+    twoPlayer.style.display = 'none';
     mode = "2";
 });
 
@@ -58,11 +82,11 @@ window.addEventListener('keydown', (event) => {
     {
         if (mode === "2")
         {
-            if (event.location === keyboardEvent.DOM_KEY_LOCATION_LEFT)
+            if (event.location === KeyboardEvent.DOM_KEY_LOCATION_LEFT)
             {
                 timer();
             }
-            if (event.location === keyboardEvent.DOM_KEY_LOCATION_RIGHT)
+            if (event.location === KeyboardEvent.DOM_KEY_LOCATION_RIGHT)
             {
                 timer();
             }
