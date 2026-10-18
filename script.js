@@ -8,10 +8,13 @@ const solutionButton = document.getElementById('solutionButton');
 const solutionsText = document.getElementById('solutions');
 const onePlayer = document.getElementById('onePlayerButton');
 const twoPlayer = document.getElementById('twoPlayerButton');
+const timerText = document.getElementById('timer');
 let card = "";
 let mode = "1";
 let player1Score = "0";
 let player2Score = "0";
+let timeLeft = 0;
+const timerActivate = false;
 
 //old genNum func:
 /*function genNumber() 
@@ -79,6 +82,11 @@ window.addEventListener('keydown', (event) => {
         {
             twentyFour();
         }
+        if(mode === "2" && timerActivate === true)
+        {
+            timerActivate = false;
+            timerText.style.display = 'none';
+        }
     }
     if (event.key === 'Shift') 
     {
@@ -86,11 +94,11 @@ window.addEventListener('keydown', (event) => {
         {
             if (event.location === KeyboardEvent.DOM_KEY_LOCATION_LEFT)
             {
-                timer();
+                timer(player1Score, player2Score);
             }
             if (event.location === KeyboardEvent.DOM_KEY_LOCATION_RIGHT)
             {
-                timer();
+                timer(player2Score, player2Score);
             }
         }
         
@@ -135,7 +143,36 @@ async function getSolutions()
     }
 }
 
-function timer()
+function timer (n, o)
 {
+    timerText.style.display = 'block';
+    timerActivate = true;
+    timeLeft = 5;
+    setTimeout(oneSec, 1000);
+    setTimeout(oneSec, 1000);
+    setTimeout(oneSec, 1000);
+    setTimeout(oneSec, 1000);
+    setTimeout(oneSec, 1000);
+    if (timerActivate = false)
+    { 
+        n += 1;
+    }
+    else
+    {
+        o += 1;
+    }
+    updateScore();
     
+}
+
+function oneSec()
+{
+    timer -= 1;
+    timerText.innerHTML = `<h1>${timer}</h1>`;
+}
+
+function updateScore()
+{
+    document.getElementById('player1Score').innerHTML = `<h4>Player 1 Score: ${player1Score}</h4>`;
+    document.getElementById('player2Score').innerHTML = `<h4>Player 2 Score: ${player1Score}</h4>`
 }
