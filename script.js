@@ -12,7 +12,7 @@ const card = "";
 
 async function twentyFour()
 {
-    const card =  await getCard();
+    card =  await getCard();
     const numbers = [parseInt(card.charAt(0)), parseInt(card.charAt(1)), parseInt(card.charAt(2)), parseInt(card.charAt(3))];
         cardText.innerHTML = `<h3>Card:<br>${numbers.join(', ')}</h3>`;
 }
@@ -49,6 +49,7 @@ async function getCard()
         const cardstxt = await response.text();
         const lines = cardstxt.split('\n');
         const lineNum = Math.floor(Math.random() * (lines.length-1)/2)*2;
+        card = lines[lineNum];
         return lines[lineNum];
     }
     catch (error)
