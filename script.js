@@ -26,23 +26,31 @@ let timerActivate = false;
 
 async function twentyFour()
 {
-    card =  await getCard()[0];
-    solN = await getCard()[1];
+    const matrix = await getCard();
+    console.log(matrix[0]);
+    console.log(matrix[1]);
+    card =  matrix[0];
+    solN = matrix[1];
+    console.log(solN);
     if(solN <= 3)
     {
+        console.log("<=3 ");
         cardDiff = 3;
-        cardDifficulty.innerHTML = `<img src="3.png" alt="card 3 difficulty">`
+        cardDifficulty.src = "3.png";
     }
-    else if(solN<= 15)
+    else if(solN <= 10)
     {
+        console.log("<= 15");
         cardDiff = 2;
-        cardDifficulty.innerHTML = `<img src="2.png" alt="card 2 difficulty">`
+        cardDifficulty.src = "2.png";
     }
     else
     {
+        console.log("else");
         cardDiff = 1;
-        cardDifficulty.innerHTML = `<img src="1.png" alt="card 1 difficulty">`
+        cardDifficulty.src = "1.png";
     }
+    console.log("e");
     const numbers = [parseInt(card.charAt(0)), parseInt(card.charAt(1)), parseInt(card.charAt(2)), parseInt(card.charAt(3))];
     console.log(mode);
     console.log(card);
@@ -60,11 +68,13 @@ async function twentyFour()
 
 startButton.addEventListener('click', () => {
     startButton.style.display = 'none';
+    cardDifficulty.removeAttribute('hidden');
     twentyFour();
 });
 
 startButton2.addEventListener('click', () => {
     startButton2.style.display = 'none';
+    cardDifficulty.removeAttribute('hidden');
     twentyFour();
 })
 
@@ -139,7 +149,6 @@ async function getCard()
         const lines = cardstxt.split('\n');
         const lineNum = Math.floor(Math.random() * (lines.length-1)/2)*2;
         card = lines[lineNum];
-        cardDifficulty.style.disply = 'block';
         return [lines[lineNum],lines[lineNum+1]];
     }
     catch (error)

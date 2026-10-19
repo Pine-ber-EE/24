@@ -46,6 +46,7 @@ class genNum:
     def random():
         a=int(random.random()*9+1)
         return a
+
 for i in range(1000,9999):
     genNum.sols=[]
     if "0" in str(i):
