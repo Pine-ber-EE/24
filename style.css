@@ -42,10 +42,27 @@ button
 
 .solutions
 {
+  display: flex;
   font-family: "pressStart", cursive;
   justify-content: center;
   max-width: 500px;
   padding: 10px;
+  text-align: center;
+
+}
+
+.modeButtons
+{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.solButton
+{
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 
 h5

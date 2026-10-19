@@ -10,7 +10,7 @@
     <body>
         <img src="title.png" alt="title image :3" style="width:15%; height:15%;">
         <h1 id = playerText>Choose a game mode to start!</h1>
-        <div style="display:flex; gap: 10px;">
+        <div style="display:flex; gap: 10px;" class="modeButtons">
             <button id="onePlayerButton">One Player</button>
             <button id="twoPlayerButton">Two Player</button>
         </div>
@@ -33,14 +33,16 @@
             </div>
 
             <img src="1.png" alt="card difficulty" width="10%" height="10%" id="diff" hidden>
-
-            <button style="display: none;" id="solutionButton"> Show solutions</button>
+            <div class="solButton">
+                <button id="solutionButton"  hidden> Show solutions</button>
+            </div>
             <h4 id="solutions"></h4>
         </div>
         <!-- two player mode -->
         <div style="display: none;" id="two">
+            <img src="banner.png" alt="under construction" style="width:60%; height:60%;">
             <h1>How to play two player 24:</h1>
-            <h4>• Look at the card! There should be four numbers.<br>• Use addition, subtraction, multiplication, and division to create the number 24!<br>• You need to use all four numbers, and exactly once each.<br>• When a player figures out the solution, press their respective side of the shift key (player 1 is left shift player 2 is right shift).<br>• A timer appear will counting down from 5 seconds.<br>• The player must input the right answer before the timer runs out to get a point.<br>• If the player fails to do so, the opposing player is awarded the point instead.</h4>
+            <h4>• Look at the card! There should be four numbers.<br>• Use addition, subtraction, multiplication, and division to create the number 24!<br>• You need to use all four numbers, and exactly once each.<br>• When a player figures out the solution, press their respective side of the shift key<br>• Player 1 is left shift player 2 is right shift.<br>• A timer appear will counting down from 5 seconds.<br>• The player must clearly explain the a correct solution before the timer runs out to get a point.<br>• If the player fails to do so, the opposing player is awarded the point instead.<br>• Press the spacebar one finished explaining to stop the timer and earn a point<br>• The faster you go the faster the timer will count down! Good luck!!</h4>
             <button class="start">Start!</button>
             <div id="card2">
                 <h3>Click start to begin!</h3>

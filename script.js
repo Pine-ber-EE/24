@@ -17,6 +17,8 @@ let player1Score = "0";
 let player2Score = "0";
 let timeLeft = 0;
 let timerActivate = false;
+let playerTurn = 0;
+let debugShift = 0;
 
 //old genNum func:
 /*function genNumber() 
@@ -26,36 +28,37 @@ let timerActivate = false;
 
 async function twentyFour()
 {
+    solutionsText.innerHTML=``;
     const matrix = await getCard();
-    console.log(matrix[0]);
-    console.log(matrix[1]);
+    //console.log(matrix[0]);
+    //console.log(matrix[1]);
     card =  matrix[0];
     solN = matrix[1];
-    console.log(solN);
+    //console.log(solN);
     if(solN <= 3)
     {
-        console.log("<=3 ");
+        //console.log("<=3 ");
         cardDiff = 3;
         cardDifficulty.src = "3.png";
     }
     else if(solN <= 10)
     {
-        console.log("<= 15");
+        //console.log("<= 15");
         cardDiff = 2;
         cardDifficulty.src = "2.png";
     }
     else
     {
-        console.log("else");
+        //console.log("else");
         cardDiff = 1;
         cardDifficulty.src = "1.png";
     }
-    console.log("e");
+    //console.log("e");
     const numbers = [parseInt(card.charAt(0)), parseInt(card.charAt(1)), parseInt(card.charAt(2)), parseInt(card.charAt(3))];
-    console.log(mode);
-    console.log(card);
-    console.log(cardText)
-    console.log(cardText2)
+    //console.log(mode);
+    //console.log(card);
+    //console.log(cardText)
+    //console.log(cardText2)
     if(mode === "1")
     {
         cardText.innerHTML = `<h3>Card:<br>${numbers.join(', ')}</h3>`;
@@ -80,8 +83,7 @@ startButton2.addEventListener('click', () => {
 
 solutionButton.addEventListener('click', async () => {
     const sols = await getSolutions();
-    console.log(sols);
-    solutionsText.innerHTML = `<h4>please note that the order of operations do not apply to these\nSolutions:<br>${sols}</h4>`;
+    solutionsText.innerHTML = `<h4>please note that the order of operations do not apply to these\nsolutions:<br>${sols}</h4>`;
 });
 
 onePlayer.addEventListener('click', () => {
@@ -110,11 +112,24 @@ window.addEventListener('keydown', (event) => {
         {
             twentyFour();
         }
-        if(mode === "2" && timerActivate === true)
+        if(mode === "2")
         {
-            timerActivate = false; 
-            colsole.log("timer deacted!");
-            timerText.style.display = 'none';
+            if(timerActivate === true)
+            {
+                timerActivate = false; 
+                //console.log("timer deacted!");
+                timerText.style.display = 'none';
+                if(playerTurn === 1)
+                {
+                    player1Score = (+player1Score)+1;
+                }
+                else if(playerTurn === 2)
+                {
+                    player2Score = (+player2Score)+1;
+                }
+                updateScore();
+                twentyFour();
+            }
         }
     }
     if (event.key === 'Shift') 
@@ -123,11 +138,11 @@ window.addEventListener('keydown', (event) => {
         {
             if (event.location === KeyboardEvent.DOM_KEY_LOCATION_LEFT)
             {
-                timer(player1Score, player2Score);
+                timer1();
             }
             if (event.location === KeyboardEvent.DOM_KEY_LOCATION_RIGHT)
             {
-                timer(player2Score, player1Score);
+                timer2();
             }
         }
         
@@ -143,7 +158,7 @@ async function getCard()
 {
     try
     {
-        solutionButton.style.display = 'block';
+        solutionButton.removeAttribute('hidden');
         const response = await fetch('cards.txt');
         const cardstxt = await response.text();
         const lines = cardstxt.split('\n');
@@ -161,7 +176,7 @@ async function getSolutions()
 {
     try
     {
-        solutionButton.style.display = 'block';
+        solutionButton.removeAttribute('hidden');
         const response = await fetch('solutions/' + card + '.txt');
         const solutionstxt = await response.text();
         return solutionstxt;  
@@ -172,48 +187,90 @@ async function getSolutions()
     }
 }
 
-function timer (n, o)
+function timer1 ()
 {
-    timerText.style.display = 'block';
-    timerActivate = true;
-    console.log(timerActivate);
-    timeLeft = 5;
-//note to self to fix i think they are overlapping cuz theres only 1 timeout idk
-    setTimeout(oneSec, 1000);
-
-    setTimeout(oneSec, 2000);
-
-    setTimeout(oneSec, 3000);
-
-    setTimeout(oneSec, 4000);
-
-    setTimeout(oneSec, 5000);
-
-    if (timerActivate = false)
-    { 
-        n += 1;
-    }
-    else
+    playerTurn = 1;
+    if (timerActivate === false)
     {
-        o += 1;
+        debugShift = (+debugShift)+1;
+        timerText.style.display = 'block';
+        timerActivate = true;
+        timeLeft = 6;
+
+        setTimeout(() => oneSec(debugShift), 0o0);
+
+        setTimeout(() => oneSec(debugShift), 1000);
+
+        setTimeout(() => oneSec(debugShift), 2000);
+
+        setTimeout(() => oneSec(debugShift), 3000);
+
+        setTimeout(() => oneSec(debugShift), 4000);
+
+        setTimeout(()=> {
+            if (timerActivate === true)
+            {
+                timerActivate = false;
+                player2Score = (+player2Score)+1;
+                updateScore();
+                timerText.style.display = 'none';
+                twentyFour();
+            }
+        }, 4500);
     }
-    updateScore();
-    timerText.style.display = 'none';
-    
 }
 
-function oneSec()
+function timer2()
 {
-    //remove later:
-    timerText.style.display = 'block';
-    //
-    timeLeft = timeLeft - 1;
-    console.log(timeLeft);
-    timerText.innerHTML = `<h1>${timeLeft}</h1>`;
+    playerTurn = 2;
+    if (timerActivate === false)
+    {
+        debugShift = (+debugShift)+1;
+        //console.log(debugShift);
+        timerText.style.display = 'block';
+        timerActivate = true;
+        timeLeft = 6;
+
+        setTimeout(() => oneSec(debugShift), 0o0);
+
+        setTimeout(() => oneSec(debugShift), 1000);
+
+        setTimeout(() => oneSec(debugShift), 2000);
+
+        setTimeout(() => oneSec(debugShift), 3000);
+
+        setTimeout(() => oneSec(debugShift), 4000);
+
+        setTimeout(()=> {
+            if (timerActivate === true)
+            {
+                timerActivate = false;
+                player1Score = (+player1Score)+1;
+                updateScore();
+                timerText.style.display = 'none';
+            }
+        }, 4500);
+
+    }
+}
+
+function oneSec(n)
+{
+    //console.log("shift:");
+    //console.log(n);
+    //console.log(debugShift);
+    if (n===debugShift)
+    {
+        if (timerActivate === true)
+        {
+            timeLeft = (+timeLeft) - 1;
+            document.getElementById('timer').innerHTML = `<h1 id="timer">${timeLeft}</h1>`;
+        }
+    }
 }
 
 function updateScore()
 {
     document.getElementById('player1Score').innerHTML = `<h4>Player 1 Score: ${player1Score}</h4>`;
-    document.getElementById('player2Score').innerHTML = `<h4>Player 2 Score: ${player1Score}</h4>`
+    document.getElementById('player2Score').innerHTML = `<h4>Player 2 Score: ${player2Score}</h4>`;
 }
